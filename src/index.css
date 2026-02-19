@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,6 +18,59 @@
   }
 }
 
+@layer base {
+  :root {
+    --gold: #D4AF37;
+    --gold-dim: #8a7020;
+    --neon-green: #00FF41;
+    --neon-green-dark: #00a827;
+    --black: #050505;
+    --dark-gray: #0a0a0a;
+    --text-main: #ffffff;
+    --text-muted: #aaaaaa;
+  }
+
+  body {
+    @apply bg-black text-white overflow-x-hidden;
+    scrollbar-color: #8a7020 #050505;
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #8a7020;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D4AF37;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+  }
+
+  h1, h2, h3 {
+    @apply font-display uppercase tracking-wider;
+  }
+
+  .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-tech {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
 @layer utilities {
   .bg-clip-text {
     -webkit-background-clip: text;
@@ -24,6 +79,45 @@
 
   .text-transparent {
     color: transparent;
+  }
+
+  .text-neon-green {
+    color: #00FF41;
+  }
+
+  .border-neon-green {
+    border-color: #00FF41;
+  }
+
+  .bg-neon-green {
+    background-color: #00FF41;
+  }
+
+  .text-gold {
+    color: #D4AF37;
+  }
+
+  .border-gold {
+    border-color: #D4AF37;
+  }
+
+  .shadow-neon-green-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(180deg, #ffffff 20%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+
+  .marquee-infinite {
+    animation: scroll 40s linear infinite;
+  }
+
+  .scroll-smooth-custom {
+    scroll-behavior: smooth;
   }
 }
 
@@ -102,6 +196,34 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollWheel {
+  0% {
+    top: 10px;
+  }
+  100% {
+    top: 30px;
+    opacity: 0;
+  }
+}
+
+@keyframes pulseOrbs {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
