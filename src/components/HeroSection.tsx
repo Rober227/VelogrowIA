@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
+import { initializeMagneticEffect, initializeMouseTrail } from '../utils/effects';
 
 interface HeroSectionProps {
   onOpenModal: (modalId: string) => void;
@@ -14,6 +15,9 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
       .to(".hero-subtitle", { duration: 1.2, opacity: 1, y: 0 }, "-=1")
       .to(".neon-btn-hero", { duration: 1, opacity: 1, y: 0 }, "-=0.8")
       .to(".scroll-down", { duration: 1, opacity: 1 }, "-=0.5");
+
+    initializeMagneticEffect();
+    initializeMouseTrail();
   }, []);
 
   return (
@@ -43,7 +47,7 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
 
         <button
           onClick={() => onOpenModal('modal-audit')}
-          className="neon-btn-hero inline-flex items-center justify-center px-12 py-5 font-display text-lg font-bold text-neon-green border-2 border-neon-green bg-black/50 backdrop-blur cursor-pointer transition-all opacity-0 uppercase tracking-widest hover:text-black hover:bg-neon-green hover:shadow-lg hover:shadow-neon-green"
+          className="neon-btn-hero magnetic-btn inline-flex items-center justify-center px-12 py-5 font-display text-lg font-bold text-neon-green border-2 border-neon-green bg-black/50 backdrop-blur cursor-pointer transition-all opacity-0 uppercase tracking-widest hover:text-black hover:bg-neon-green hover:shadow-lg hover:shadow-neon-green"
         >
           SOLICITAR AUDITORÍA
         </button>

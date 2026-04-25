@@ -227,6 +227,515 @@
   }
 }
 
+/* --- EFECTOS AVANZADOS DE HOVER --- */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3), inset 0 0 10px rgba(0, 255, 65, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.6), inset 0 0 20px rgba(0, 255, 65, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.3), inset 0 0 10px rgba(0, 255, 65, 0.1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes floatingText {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes cornerGlow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 20px rgba(0, 255, 65, 0);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(0, 255, 65, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(0, 255, 65, 0);
+  }
+}
+
+/* --- EFECTOS DE TARJETAS MEJORADOS --- */
+.card {
+  position: relative;
+}
+
+.card::before,
+.card::after {
+  animation: cornerGlow 3s infinite;
+}
+
+.card:hover::before {
+  animation: cornerGlow 1.5s infinite;
+}
+
+.card:hover::after {
+  animation: cornerGlow 1.5s infinite 0.75s;
+}
+
+/* --- EFECTO BRILLO EN TEXTO --- */
+.shimmer-text {
+  background: linear-gradient(90deg, #ffffff 25%, #D4AF37 50%, #ffffff 75%);
+  background-size: 1000px 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s infinite;
+}
+
+/* --- EFECTOS DE BOTONES MEJORADOS --- */
+.neon-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.neon-btn:hover::before {
+  left: 100%;
+}
+
+/* --- EFECTO GLASSMORPHISM MEJORADO --- */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* --- ANIMACIÓN DE ENTRADA ESCALONADA --- */
+@keyframes staggerIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  animation: staggerIn 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stagger-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stagger-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.stagger-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.stagger-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.stagger-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* --- EFECTO PARALLAX MEJORADO --- */
+@keyframes parallaxMove {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+.parallax-section {
+  animation: parallaxMove 10s ease-in-out infinite;
+}
+
+/* --- EFECTO DE LUZ AMBIENTAL --- */
+@keyframes ambientLight {
+  0%, 100% {
+    background: radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+  }
+  50% {
+    background: radial-gradient(circle at 50% 50%, rgba(0, 255, 65, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.2) 0%, transparent 50%);
+  }
+}
+
+.ambient-light {
+  animation: ambientLight 8s ease-in-out infinite;
+}
+
+/* --- EFECTO BORDER GLOW --- */
+@keyframes borderGlow {
+  0% {
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    border-color: rgba(212, 175, 55, 1);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+  }
+  100% {
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+}
+
+.border-glow {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+/* --- EFECTO REVEAL TEXT --- */
+@keyframes revealText {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.reveal-text {
+  animation: revealText 0.8s ease-out;
+}
+
+/* --- EFECTO WAVE --- */
+@keyframes wave {
+  0% {
+    clip-path: polygon(
+      0% 47%,
+      10% 48%,
+      20% 50%,
+      30% 48%,
+      40% 46%,
+      50% 48%,
+      60% 50%,
+      70% 48%,
+      80% 46%,
+      90% 48%,
+      100% 50%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  100% {
+    clip-path: polygon(
+      0% 53%,
+      10% 52%,
+      20% 50%,
+      30% 52%,
+      40% 54%,
+      50% 52%,
+      60% 50%,
+      70% 52%,
+      80% 54%,
+      90% 52%,
+      100% 50%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+.wave-effect {
+  animation: wave 4s ease-in-out infinite;
+}
+
+/* --- EFECTO 3D FLIP --- */
+@keyframes flip3D {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.flip-3d {
+  animation: flip3D 6s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* --- EFECTO MAGNETIC BUTTON --- */
+.magnetic-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.magnetic-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 255, 65, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.6s ease-out;
+}
+
+.magnetic-btn:hover::after {
+  transform: scale(1);
+}
+
+/* --- EFECTO AURORA BOREALIS --- */
+@keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.aurora-bg {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 65, 0.1) 0%,
+    rgba(212, 175, 55, 0.1) 25%,
+    rgba(0, 255, 65, 0.1) 50%,
+    rgba(212, 175, 55, 0.1) 75%,
+    rgba(0, 255, 65, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: aurora 8s ease infinite;
+}
+
+/* --- EFECTO GLITCH DE CARACTERES --- */
+@keyframes glitch-char-1 {
+  0%, 100% {
+    text-shadow: none;
+    color: inherit;
+  }
+  20% {
+    text-shadow: -2px 0 #ff0000, 2px 0 #00ff00;
+    color: #0000ff;
+  }
+  40% {
+    text-shadow: 2px 0 #ff0000, -2px 0 #00ff00;
+  }
+}
+
+@keyframes glitch-char-2 {
+  0%, 100% {
+    text-shadow: none;
+    color: inherit;
+  }
+  30% {
+    text-shadow: -2px 0 #00ff00, 2px 0 #ff0000;
+    color: #0000ff;
+  }
+}
+
+@keyframes glitch-char-3 {
+  0%, 100% {
+    text-shadow: none;
+    color: inherit;
+  }
+  50% {
+    text-shadow: -2px 0 #ff0000, 2px 0 #0000ff;
+    color: #00ff00;
+  }
+}
+
+/* --- EFECTO NEON GLOW MEJORADO --- */
+.neon-glow-text {
+  text-shadow: 0 0 10px #00FF41, 0 0 20px #00FF41, 0 0 30px #00FF41, 0 0 40px #00FF41;
+  color: #00FF41;
+  animation: neonFlicker 3s infinite;
+}
+
+@keyframes neonFlicker {
+  0%, 100% {
+    text-shadow: 0 0 10px #00FF41, 0 0 20px #00FF41, 0 0 30px #00FF41, 0 0 40px #00FF41;
+  }
+  50% {
+    text-shadow: 0 0 5px #00FF41, 0 0 10px #00FF41, 0 0 15px #00FF41;
+  }
+}
+
+/* --- EFECTO RAINBOW TEXT --- */
+@keyframes rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.rainbow-text {
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #0000ff,
+    #4b0082,
+    #9400d3,
+    #ff0000
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow 3s linear infinite;
+}
+
+/* --- EFECTO CYBER GRID --- */
+.cyber-grid {
+  background-image:
+    linear-gradient(0deg, transparent 24%, rgba(0, 255, 65, 0.05) 25%, rgba(0, 255, 65, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, 0.05) 75%, rgba(0, 255, 65, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 255, 65, 0.05) 25%, rgba(0, 255, 65, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 255, 65, 0.05) 75%, rgba(0, 255, 65, 0.05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+  animation: cyber-grid-move 10s linear infinite;
+}
+
+@keyframes cyber-grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+/* --- EFECTO CHROME SHINE --- */
+.chrome-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.chrome-shine::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  animation: chrome-shine 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes chrome-shine {
+  0% {
+    transform: translate(-100%, -100%) rotate(0deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(0deg);
+  }
+}
+
+/* --- EFECTO DIGITAL RAIN --- */
+.digital-rain {
+  position: relative;
+  overflow: hidden;
+}
+
+.digital-rain::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+  animation: digital-rain-fall 4s linear infinite;
+  color: #00FF41;
+  font-family: monospace;
+}
+
+@keyframes digital-rain-fall {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(100px);
+  }
+}
+
+/* --- EFECTO HOLOGRAM --- */
+.hologram {
+  position: relative;
+  color: #00FF41;
+  text-shadow:
+    0 0 10px #00FF41,
+    0 0 20px #00FF41,
+    0 0 30px #00FF41,
+    0 0 40px #D4AF37,
+    0 0 70px #D4AF37,
+    0 0 80px #D4AF37,
+    0 0 100px #D4AF37;
+  animation: hologram-flicker 2s infinite;
+}
+
+@keyframes hologram-flicker {
+  0%, 100% {
+    text-shadow:
+      0 0 10px #00FF41,
+      0 0 20px #00FF41,
+      0 0 30px #00FF41,
+      0 0 40px #D4AF37;
+  }
+  50% {
+    text-shadow:
+      0 0 5px #00FF41,
+      0 0 10px #00FF41,
+      0 0 15px #00FF41,
+      0 0 20px #D4AF37;
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }

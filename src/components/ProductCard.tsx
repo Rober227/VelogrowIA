@@ -10,7 +10,7 @@ interface ProductCardProps {
 
 export const ProductCard = ({ icon, title, description, image, onViewDetails }: ProductCardProps) => {
   return (
-    <article className="card bg-white/5 backdrop-blur-lg border border-white/15 rounded-lg overflow-hidden transition-all hover:border-neon-green/30 hover:shadow-lg hover:shadow-neon-green/15 hover:bg-white/10 relative flex flex-col h-full group">
+    <article className="card bg-white/5 backdrop-blur-lg border border-white/15 rounded-lg overflow-hidden transition-all hover:border-neon-green/30 hover:shadow-lg hover:shadow-neon-green/15 hover:bg-white/10 relative flex flex-col h-full group" data-glow>
       <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-neon-green opacity-0 group-hover:shadow-lg group-hover:shadow-neon-green transition-all" />
       <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-neon-green opacity-0 group-hover:shadow-lg group-hover:shadow-neon-green transition-all" />
 

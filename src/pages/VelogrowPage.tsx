@@ -6,6 +6,7 @@ import { Modal } from '../components/Modal';
 import { ProductCard } from '../components/ProductCard';
 import { AuditForm } from '../components/AuditForm';
 import { ParticleBackground } from '../components/ParticleBackground';
+import { initializeAllEffects, initializeParallaxScroll, initializeScrollReveal, initializeGlowOnScroll } from '../utils/effects';
 import { Box, Cpu, Network, Brain, Zap, Star } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -161,6 +162,12 @@ export const VelogrowPage = () => {
 
   useEffect(() => {
     ScrollTrigger.refresh();
+    initializeAllEffects();
+    setTimeout(() => {
+      initializeParallaxScroll();
+      initializeScrollReveal();
+      initializeGlowOnScroll();
+    }, 500);
   }, []);
 
   return (
@@ -169,7 +176,7 @@ export const VelogrowPage = () => {
 
       <HeroSection onOpenModal={openModal} />
 
-      <section id="integrations" className="relative py-16 px-5 overflow-hidden z-10 border-y border-gray-900">
+      <section id="integrations" className="relative py-16 px-5 overflow-hidden z-10 border-y border-gray-900 aurora-bg">
         <div className="absolute inset-0 bg-gradient-to-r from-neon-green/15 via-transparent to-neon-green/15 animate-pulse-orbs" />
 
         <div className="relative z-20 flex overflow-hidden">
@@ -212,8 +219,8 @@ export const VelogrowPage = () => {
 
       <section id="concept" className="relative py-20 px-5 bg-gray-950 z-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="animate-fade-in-up">
-            <h2 className="text-4xl font-display font-black mb-6 text-gold">LA CONVERGENCIA DE CANALES</h2>
+          <div className="animate-fade-in-up" data-reveal>
+            <h2 className="text-4xl font-display font-black mb-6 text-gold neon-glow-text">LA CONVERGENCIA DE CANALES</h2>
             <p className="text-lg text-gray-300 mb-4 leading-relaxed">
               El mercado digital ya no es una serie de islas desconectadas. El Ecosistema Velogrow IA no es un conjunto de herramientas aisladas; es un <span className="text-white font-semibold border-b border-gold">Centro de Conexión Multicanal</span> que integra cada punto de contacto.
             </p>
@@ -222,16 +229,16 @@ export const VelogrowPage = () => {
             </p>
           </div>
 
-          <div className="animate-fade-in-up">
-            <img src="https://z-cdn-media.chatglm.cn/files/b4ce3fd7-09f8-4261-aa42-09d81351965b.png?auth_key=1871109065-8f7d10c918a4417db397ab42184e9295-0-2c4c5010a4ded9410360b16dec494be4" alt="Convergencia" className="w-full h-96 object-contain hover:scale-105 transition-transform duration-500" />
+          <div className="animate-fade-in-up" data-parallax="0.3">
+            <img src="https://z-cdn-media.chatglm.cn/files/b4ce3fd7-09f8-4261-aa42-09d81351965b.png?auth_key=1871109065-8f7d10c918a4417db397ab42184e9295-0-2c4c5010a4ded9410360b16dec494be4" alt="Convergencia" className="w-full h-96 object-contain hover:scale-105 transition-transform duration-500 chrome-shine" />
           </div>
         </div>
       </section>
 
-      <section id="identity" className="relative py-24 px-5 z-10" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1614728853913-1e221b2c40c3?q=80&w=2600')", backgroundAttachment: 'fixed' }}>
+      <section id="identity" className="relative py-24 px-5 z-10 cyber-grid" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1614728853913-1e221b2c40c3?q=80&w=2600')", backgroundAttachment: 'fixed' }}>
         <div className="absolute inset-0 bg-black/75" />
-        <div className="relative max-w-3xl mx-auto bg-white/5 backdrop-blur-lg border border-gold/40 p-12 rounded-lg shadow-lg">
-          <h2 className="text-4xl font-display font-black text-gold text-center mb-8">ARQUITECTOS DE LA CONECTIVIDAD</h2>
+        <div className="relative max-w-3xl mx-auto bg-white/5 backdrop-blur-lg border border-gold/40 p-12 rounded-lg shadow-lg chrome-shine" data-glow>
+          <h2 className="text-4xl font-display font-black text-gold text-center mb-8 hologram">ARQUITECTOS DE LA CONECTIVIDAD</h2>
           <p className="text-lg text-white text-center leading-relaxed mb-6">
             Somos un equipo de expertos en ventas, programación y estrategia digital. En Velogrow IA, entendemos que las empresas no mueren, se vuelven obsoletas por falta de integración.
           </p>
@@ -265,13 +272,13 @@ export const VelogrowPage = () => {
         </div>
       </section>
 
-      <section id="ecosystem" className="relative py-24 px-5 z-10" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2659')", backgroundPosition: 'center bottom' }}>
+      <section id="ecosystem" className="relative py-24 px-5 z-10 aurora-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2659')", backgroundPosition: 'center bottom' }}>
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <div className="text-sm font-tech text-neon-green uppercase tracking-wider mb-2 shadow-neon-green-glow">Velogrow System</div>
-            <h2 className="text-4xl md:text-5xl font-display font-black text-white uppercase tracking-wider">Módulos Multicanal</h2>
+          <div className="text-center mb-20" data-reveal>
+            <div className="text-sm font-tech text-neon-green uppercase tracking-wider mb-2 shadow-neon-green-glow neon-glow-text">Velogrow System</div>
+            <h2 className="text-4xl md:text-5xl font-display font-black text-white uppercase tracking-wider hologram">Módulos Multicanal</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -289,13 +296,13 @@ export const VelogrowPage = () => {
         </div>
       </section>
 
-      <section id="roadmap" className="relative py-24 px-5 z-10" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504384308090-c54be3855833?q=80&w=2560')" }}>
+      <section id="roadmap" className="relative py-24 px-5 z-10 cyber-grid" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504384308090-c54be3855833?q=80&w=2560')" }}>
         <div className="absolute inset-0 bg-black/70" />
 
         <div className="relative max-w-2xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-sm font-tech text-neon-green uppercase tracking-wider mb-2 shadow-neon-green-glow">Proceso</div>
-            <h2 className="text-4xl font-display font-black text-white uppercase tracking-wider">Ruta de Integración</h2>
+          <div className="text-center mb-16" data-reveal>
+            <div className="text-sm font-tech text-neon-green uppercase tracking-wider mb-2 shadow-neon-green-glow neon-glow-text">Proceso</div>
+            <h2 className="text-4xl font-display font-black text-white uppercase tracking-wider hologram">Ruta de Integración</h2>
           </div>
 
           <div className="space-y-12">
@@ -316,15 +323,15 @@ export const VelogrowPage = () => {
         </div>
       </section>
 
-      <section id="final-cta" className="relative h-screen min-h-[600px] flex flex-col justify-center items-center text-center z-10" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1464802686167-b939a6910659?q=80&w=2560')", backgroundAttachment: 'fixed' }}>
+      <section id="final-cta" className="relative h-screen min-h-[600px] flex flex-col justify-center items-center text-center z-10 aurora-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1464802686167-b939a6910659?q=80&w=2560')", backgroundAttachment: 'fixed' }}>
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/70 to-black/90" />
 
-        <div className="relative z-20 max-w-2xl px-5">
-          <h2 className="text-5xl md:text-6xl font-display font-black text-white mb-8 uppercase tracking-widest">¿LISTO PARA LA CONVERGENCIA?</h2>
+        <div className="relative z-20 max-w-2xl px-5" data-reveal>
+          <h2 className="text-5xl md:text-6xl font-display font-black text-white mb-8 uppercase tracking-widest hologram">¿LISTO PARA LA CONVERGENCIA?</h2>
 
           <button
             onClick={() => openModal('modal-audit')}
-            className="inline-block px-16 py-6 text-2xl font-display font-bold text-neon-green border-2 border-neon-green bg-black/50 backdrop-blur uppercase tracking-widest cursor-pointer transition-all hover:bg-neon-green hover:text-black hover:shadow-lg hover:shadow-neon-green"
+            className="inline-block px-16 py-6 text-2xl font-display font-bold text-neon-green border-2 border-neon-green bg-black/50 backdrop-blur uppercase tracking-widest cursor-pointer transition-all hover:bg-neon-green hover:text-black hover:shadow-lg hover:shadow-neon-green magnetic-btn chrome-shine"
           >
             SOLICITAR AUDITORÍA
           </button>
